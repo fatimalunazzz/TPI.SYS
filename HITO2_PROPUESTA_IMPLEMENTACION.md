@@ -6,23 +6,10 @@
 **Base de Datos Seleccionada:** *MIT-BIH Arrhythmia Database* (PhysioNet)  
 **Artículo de Referencia:** Srinivasulu, A., & Sriraam, N. (2023). *Signal processing framework for the detection of ventricular ectopic beat episodes*. Journal of Medical Signals & Sensors, 13(3), 239-251.
 
----
-
-## 1. Integrantes del Grupo y Asignación de Roles
-
-* **Grupo N°:** [Insertar Número de Grupo]
-* **Integrantes y Roles:**
-  * **[Nombre Apellido]** - *Moderador/Coordinador* (Gestión de cronograma y comunicación con el Tutor)
-  * **[Nombre Apellido]** - *Responsable Técnico / Lead Coder* (Estructura del repositorio en GitHub y arquitectura de código en Python)
-  * **[Nombre Apellido]** - *Analista / Documentador (Scribe)* (Redacción técnica y revisión bibliográfica)
-  * **[Nombre Apellido]** - *Desarrollador / Procesamiento de Señales* (Diseño de filtros e implementación de Pan-Tompkins)
-  * **[Nombre Apellido]** - *Desarrollador / Procesamiento de Señales* (Detección de puntos fiduciales Q, R, S y extracción de características)
-  * **[Nombre Apellido]** - *Desarrollador / Análisis de Datos* (Implementación del clasificador NMC/NRMS)
-  * **[Nombre Apellido]** - *Desarrollador / Análisis de Datos* (Validación estadística y métricas de desempeño)
 
 ---
 
-## 2. Justificación de la Elección del Artículo de Referencia
+## 1. Justificación de la Elección del Artículo de Referencia
 
 Para el desarrollo del TPI se seleccionó el trabajo de **Srinivasulu & Sriraam (2023)** por las siguientes razones fundamentales:
 
@@ -33,7 +20,7 @@ Para el desarrollo del TPI se seleccionó el trabajo de **Srinivasulu & Sriraam 
 
 ---
 
-## 3. Selección y Descripción de la Base de Datos
+## 2. Selección y Descripción de la Base de Datos
 
 * **Nombre:** MIT-BIH Arrhythmia Database (PhysioNet)
 * **Acceso:** PhysioNet Open Access Repository (MITDB 1.0.0)
@@ -49,7 +36,7 @@ Para el desarrollo del TPI se seleccionó el trabajo de **Srinivasulu & Sriraam 
 
 ---
 
-## 4. Diagrama en Bloques del Sistema Propuesto
+## 3. Diagrama en Bloques del Sistema Propuesto
 
 El flujo de procesamiento desde la señal bruta hasta la clasificación del latido se compone de 5 bloques funcionales:
 
@@ -89,9 +76,9 @@ El flujo de procesamiento desde la señal bruta hasta la clasificación del lati
 
 ---
 
-## 5. Fundamentación Teórica y Definición Matemática
+## 4. Fundamentación Teórica y Definición Matemática
 
-### 5.1 Preprocesamiento y Filtrado Digital
+### 4.1 Preprocesamiento y Filtrado Digital
 La señal electrocardiográfica $x[n]$ capturada sufre contaminación por ruido de baja frecuencia (deriva de línea base por respiración, $< 0.5\text{ Hz}$) e interferencias de alta frecuencia (ruido electromiográfico EMG y red eléctrica de $50/60\text{ Hz}$).
 
 1. **Filtro Pasa-Banda (0.5 Hz - 40 Hz):**  
@@ -105,7 +92,7 @@ La señal electrocardiográfica $x[n]$ capturada sufre contaminación por ruido 
 
 ---
 
-### 5.2 Algoritmo de Detección del Complejo QRS (Pan-Tompkins)
+### 4.2 Algoritmo de Detección del Complejo QRS (Pan-Tompkins)
 Para localizar los picos $R$ y determinar los puntos $Q$ y $S$, se aplican las siguientes transformaciones discretas sobre la señal filtrada $y[n]$:
 
 1. **Derivador Discreto (Diferenciación):**  
@@ -125,7 +112,7 @@ Para localizar los picos $R$ y determinar los puntos $Q$ y $S$, se aplican las s
 
 ---
 
-### 5.3 Extracción de Características Temporales y Morfométricas
+### 4.3 Extracción de Características Temporales y Morfométricas
 Para cada latido $i$, se calcula un vector de características $\mathbf{f}_i \in \mathbb{R}^5$ basado en las propiedades anatómicas descritas por Srinivasulu & Sriraam (2023) [JMSS-13-239]:
 
 1. **Intervalo Pre-RR:** Tiempo transcurrido desde el latido previo.
@@ -144,7 +131,7 @@ Para cada latido $i$, se calcula un vector de características $\mathbf{f}_i \in
 
 ---
 
-### 5.4 Clasificador Replicado: Nearest Mean Classifier (NMC)
+### 4.4 Clasificador Replicado: Nearest Mean Classifier (NMC)
 De acuerdo con las recomendaciones recibidas para acotar el alcance al marco de *Señales y Sistemas*, se implementará el **Nearest Mean Classifier (NMC)** por su transparencia lineal y bajo costo computacional ($CT \approx 0.0031\text{ s}$) [JMSS-13-239].
 
 1. **Etapa de Entrenamiento (Cálculo de Centroides):**  
@@ -160,7 +147,7 @@ De acuerdo con las recomendaciones recibidas para acotar el alcance al marco de 
 
 ---
 
-## 6. Referencias Bibliográficas
+## 5. Referencias Bibliográficas
 
 1. **Srinivasulu, A., & Sriraam, N. (2023).** *Signal processing framework for the detection of ventricular ectopic beat episodes*. Journal of Medical Signals & Sensors, 13(3), 239–251.
 2. **Pan, J., & Tompkins, W. J. (1985).** *A real-time QRS detection algorithm*. IEEE Transactions on Biomedical Engineering, (3), 230–236.
