@@ -90,7 +90,7 @@ Para aislar la envolvente de energía del complejo QRS frente a ondas P y T prom
    
    $$m[n] = \frac{1}{N} \sum_{k=0}^{N-1} s[n-k]$$
 
-### 6.2. Localización de Picos Fiduciales ($Q, R, S$)
+### 3.2. Localización de Picos Fiduciales ($Q, R, S$)
 Una vez hallada la envolvente de energía $m[n]$, el algoritmo aísla los eventos mediante un umbral adaptativo $TH = \text{mean}(m[n])$ combinado con un período refractario fisiológico de $200\text{ ms}$ entre latidos adyacentes.
 
 Debido al retardo de fase introducido por el integrador, los picos fiduciales se re-ubican en la señal filtrada original $y_{pb}[n]$ mediante búsqueda local en una ventana de $\pm 150\text{ ms}$:
