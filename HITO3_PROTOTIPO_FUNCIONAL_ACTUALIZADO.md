@@ -126,8 +126,8 @@ Los resultados cuantitativos obtenidos en la evaluación ciega sobre INCART I01 
 
 1. **Desempeño y Generalización:** El prototipo desarrollado cumple satisfactoriamente con los requerimientos del Hito 3, alcanzando una **Exactitud Global del** $95.29\%$ y una **Especificidad del** $98.64\%$ en validación ciega inter-base (*cross-database*), demostrando la robustez del filtrado de fase cero y el vector de características $\mathbb{R}^5$.
 
-2. **Justificación Analítica de Limitaciones:** La sensibilidad obtenida ($58.82\%$) expone teóricamente la limitación del NMC al emplear un único centroide promedio ($\boldsymbol{\mu}_V$) frente a latidos ventriculares multiformes de distintas procedencias clínicas. Esto justifica formalmente la necesidad de evolucionar hacia clasificadores más avanzados (como *NRMS* o distancia de Mahalanobis) en futuras etapas del desarrollo.
-
+2. **Justificación Analítica de Limitaciones:** La sensibilidad obtenida ($58.82\%$) expone la limitación del NMC al emplear un único centroide promedio ($\boldsymbol{\mu}_V$) frente a latidos ventriculares multiformes de distintas procedencias clínicas.
+  
 3. **Cierre del TPI:** El código y la estructura expositiva se encuentran completamente consolidados y listos para la defensa oral del Hito final.
 
 ## 7. Referencias Bibliográficas
